@@ -1,21 +1,14 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </div>
         <router-view />
-        <Visualiser />
     </div>
 </template>
 
 <script>
-import Visualiser from "./components/Visualiser"
 
 export default {
   name: 'App',
   components: {
-    Visualiser
   }
 }
 </script>
