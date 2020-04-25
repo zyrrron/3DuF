@@ -88,8 +88,8 @@
     "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive --compilers js:babel/register ./src/test/",
     "check_pretty": "prettier --check './src/**/*.js'",
     "make_pretty": "prettier --write es6 --parser babel './src/**/*.js'",
-    "eslint": "eslint './src/app/**/*.js'",
-    "eslint_fix": "eslint --fix './src/app/**/*.js' ",
+    "eslint": "eslint './src/**/*.js'",
+    "eslint_fix": "eslint --fix './src/**/*.js' ",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"

@@ -56,7 +56,7 @@ export default class CustomComponent {
      */
     generateComponent() {
         let paramvalues = {};
-        let feature = Device.makeFeature(type, "custom", paramvalues, Registry.currentDevice.generateNewName(type), Feature.generateID(), this.dxfData);
+        let feature = Device.makeFeature(this.__type, "custom", paramvalues, Registry.currentDevice.generateNewName(type), Feature.generateID(), this.dxfData);
         return feature;
     }
 

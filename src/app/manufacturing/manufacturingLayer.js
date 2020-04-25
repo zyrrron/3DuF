@@ -89,7 +89,7 @@ export default class ManufacturingLayer {
      * @return {string}
      */
     static generateSVGTextPrepend(xspan, yspan) {
-        let text = "<svg width=\"${xspan / 1000}mm\" height=\"${yspan / 1000}mm\" viewBox=\"0 0 ${xspan} ${yspan}\">";
+        let text = '<svg width="${xspan / 1000}mm" height="${yspan / 1000}mm" viewBox="0 0 ${xspan} ${yspan}">';
         return text;
     }
 

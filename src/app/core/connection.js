@@ -7,7 +7,6 @@ import * as FeatureRenderer2D from "../view/render2D/featureRenderer2D";
 
 import Registry from "./registry";
 
-
 /**
  * This class contains the connection abstraction used in the interchange format and the
  * high level device model of the microfluidic.
@@ -518,7 +517,7 @@ export default class Connection {
      */
     tryDeleteConnectionTarget(componentid) {
         let ret = false;
-        if (component.getID() == componentid) {
+        if (this.__source.component.getID() == componentid) {
             //Remove the source object
             this.__source = null;
             ret = true;

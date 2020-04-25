@@ -198,8 +198,11 @@ export default class FeatureSet {
 
     __checkDefinitions() {
         for (let key in this.__definitions) {
-            if (!Object.prototype.hasOwnProperty.call(this.__tools, key) || !Object.prototype.hasOwnProperty.call(this.__render2D, key) 
-                || !Object.prototype.hasOwnProperty.call(this.__render3D, key)) {
+            if (
+                !Object.prototype.hasOwnProperty.call(this.__tools, key) ||
+                !Object.prototype.hasOwnProperty.call(this.__render2D, key) ||
+                !Object.prototype.hasOwnProperty.call(this.__render3D, key)
+            ) {
                 throw new Error("Feature set does not contain a renderer or tool definition for: " + key);
             }
         }

@@ -6,7 +6,6 @@ import LaserCuttingGenerator from "../../manufacturing/laserCuttingGenerator";
 import Registry from "../../core/registry";
 import { saveAs } from "file-saver";
 
-
 export default class ManufacturingPanel {
     constructor(viewManagerDelegate) {
         this.__viewManagerDelegate = viewManagerDelegate;
