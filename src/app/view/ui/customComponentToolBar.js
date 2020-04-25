@@ -1,6 +1,6 @@
 import * as HTMLUtils from "../../utils/htmlUtils";
 import ComponentToolBar from "./componentToolBar";
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 
 export default class CustomComponentToolBar {
     constructor(customComponentManagerDelegate) {

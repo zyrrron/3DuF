@@ -35,7 +35,6 @@ export function renderFeatureObjects(feature) {
         let dxfobject = feature.getDXFObjects()[i];
     }
     throw new Error("Implement the renderer");
-    return undefined;
 }
 
 /**
@@ -206,7 +205,8 @@ export function renderDXFObjects(dxfobjectarray) {
         } else if (dxfobject.getType() === "SPLINE") {
             alert("The current version of the DXF Parser does not support SPLINE objects. Support will be added in future versions");
             throw new Error("Unsupported render object");
-            processSpline(geometryGraph, dxfobject.getData());
+            // TODO: Fix this
+            //processSpline(geometryGraph, dxfobject.getData());
         } else if (dxfobject.getType() === "DIMENSION") {
             console.warn("DIMENSION entry in DXF will be ignored. Please ensure that all the designs are of the correct dimensions");
         } else if (dxfobject.getType() === "MTEXT") {

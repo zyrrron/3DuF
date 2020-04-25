@@ -1,5 +1,6 @@
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 import wNumb from "wnumb";
+import noUiSlider from "nouislider";
 
 export default class ResolutionToolBar {
     constructor() {

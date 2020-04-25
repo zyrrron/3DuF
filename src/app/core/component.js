@@ -2,7 +2,7 @@ import Params from "./params";
 import CustomComponent from "./customComponent";
 import ComponentPort from "./componentPort";
 
-import Registry from './registry';
+import Registry from "./registry";
 import * as FeatureRenderer2D from "../view/render2D/featureRenderer2D";
 
 /**
@@ -211,7 +211,7 @@ export default class Component {
      * @returns {boolean}
      */
     hasDefaultParam(key) {
-        if (this.getDefaults().hasOwnProperty(key)) return true;
+        if (Object.prototype.hasOwnProperty.call(this.getDefaults(), key)) return true;
         else return false;
     }
 
@@ -395,9 +395,9 @@ export default class Component {
         let value;
         for (let key in json.params) {
             // console.log("key:", key, "value:", json.params[key]);
-            if (definition.heritable.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(definition.heritable, key)) {
                 type = definition.heritable[key];
-            } else if (definition.unique.hasOwnProperty(key)) {
+            } else if (Object.prototype.hasOwnProperty.call(definition.unique, key)) {
                 type = definition.unique[key];
             }
             // let paramobject = Parameter.generateComponentParameter(key, json.params[key]);
@@ -412,7 +412,7 @@ export default class Component {
         }
 
         //Do another check and see if position is present or not
-        if (!params.hasOwnProperty("position")) {
+        if (!Object.prototype.hasOwnProperty.call(params, "position")) {
             params["position"] = [0.0, 0.0];
         }
 

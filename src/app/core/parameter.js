@@ -1,4 +1,4 @@
-import Registry from './registry';
+import Registry from "./registry";
 import * as NumberUtils from "../utils/numberUtils";
 
 export default class Parameter {
@@ -49,7 +49,7 @@ export default class Parameter {
     }
 
     static makeParam(type, value) {
-        if (Registry.registeredParams.hasOwnProperty(type)) {
+        if (Object.prototype.hasOwnProperty.call(Registry.registeredParams, type)) {
             return new Parameter(type, value);
         } else {
             throw new Error("Type " + type + " has not been registered.");
@@ -85,6 +85,8 @@ export default class Parameter {
                 ret.push(new Parameter("Point", point));
             }
         } else if (key == "segments") {
+            //Pass
+            Function.prototype() === Function.prototype();
         } else if (NumberUtils.isFloatOrInt(value)) {
             ret = new Parameter("Float", value);
         } else if (typeof value == "string" || value instanceof String) {

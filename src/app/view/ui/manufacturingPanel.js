@@ -3,7 +3,9 @@ import CNCGenerator from "../../manufacturing/cncGenerator";
 import JSZip from "jszip";
 import LaserCuttingGenerator from "../../manufacturing/laserCuttingGenerator";
 
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
+import { saveAs } from "file-saver";
+
 
 export default class ManufacturingPanel {
     constructor(viewManagerDelegate) {

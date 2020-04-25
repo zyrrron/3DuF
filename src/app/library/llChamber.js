@@ -216,49 +216,6 @@ export default class LLChamber extends Template {
         } else {
             return this.__renderControl(params);
         }
-
-        let position = params["position"];
-        let px = position[0];
-        let py = position[1];
-        let l = params["length"];
-        let w = params["width"];
-        let rotation = params["rotation"];
-        let color = params["color"];
-        // let radius = params["cornerRadius"];
-
-        let numArray = params["numberOfChambers"];
-        let spacing = params["spacing"];
-
-        let rendered = new paper.CompoundPath();
-
-        let rec;
-
-        for (let i = 0; i < numArray; i++) {
-            rec = new paper.Path.Rectangle({
-                point: new paper.Point(px + (i + 1) * spacing + i * w, py - 1),
-                size: [w, l + 2],
-                radius: 0
-            });
-
-            rendered.addChild(rec);
-        }
-
-        let topchannel = new paper.Path.Rectangle({
-            point: new paper.Point(px, py - w),
-            size: [numArray * w + (numArray + 1) * spacing, w]
-        });
-
-        rendered.addChild(topchannel);
-
-        let bottomchannel = new paper.Path.Rectangle({
-            point: new paper.Point(px, py + l),
-            size: [numArray * w + (numArray + 1) * spacing, w]
-        });
-
-        rendered.addChild(bottomchannel);
-
-        rendered.fillColor = color;
-        return rendered.rotate(rotation, px, py);
     }
 
     render2DTarget(key, params) {

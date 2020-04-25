@@ -1,5 +1,6 @@
 import ManufacturingLayer from "./manufacturingLayer";
 import DepthFeatureMap from "./depthFeatureMap";
+import Registry from "../core/registry";
 
 export default class LaserCuttingGenerator {
     constructor(device, viewManagerDelegate) {

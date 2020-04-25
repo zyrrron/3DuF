@@ -1,3 +1,5 @@
+import Registry from "../../core/registry";
+
 export default class ChangeAllDialog {
     constructor() {
         this.__componentsToChangeMap = new Map();

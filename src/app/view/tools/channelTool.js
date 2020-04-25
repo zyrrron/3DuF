@@ -1,6 +1,6 @@
 import MouseTool from "./mouseTool";
 
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 import SimpleQueue from "../../utils/simpleQueue";
 import Device from "../../core/device";
 import paper from "paper";
@@ -60,7 +60,7 @@ export default class ChannelTool extends MouseTool {
     }
 
     abort() {
-        ref.dragging = false;
+        this.dragging = false;
         if (this.currentTarget) {
             this.currentTarget.remove();
         }

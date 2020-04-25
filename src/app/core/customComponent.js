@@ -1,7 +1,7 @@
 import DXFObject from "./dxfObject";
 import Device from "./device";
 
-import Registry from './registry';
+import Registry from "./registry";
 
 /**
  * This class contains the component abstraction used in the interchange format and the
@@ -88,7 +88,7 @@ export default class CustomComponent {
      */
     static fromInterchangeV1(json) {
         let set;
-        if (json.hasOwnProperty("set")) set = json.set;
+        if (Object.prototype.hasOwnProperty.call(json, "set")) set = json.set;
         else set = "Basic";
         let dxfdata = [];
         for (let i in json.dxfData) {

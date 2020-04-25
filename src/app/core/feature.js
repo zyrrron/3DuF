@@ -5,7 +5,7 @@ import Device from "./device";
 import * as Parameters from "./parameters";
 const StringValue = Parameters.StringValue;
 import * as FeatureSets from "../featureSets";
-import Registry from './registry';
+import Registry from "./registry";
 
 /**
  * Represents the object from which we generate a render
@@ -166,7 +166,7 @@ export default class Feature {
     }
 
     hasDefaultParam(key) {
-        if (this.getDefaults().hasOwnProperty(key)) return true;
+        if (Object.prototype.hasOwnProperty.call(this.getDefaults(), key)) return true;
         else return false;
     }
 
@@ -220,14 +220,14 @@ export default class Feature {
 
     static checkDefaults(values, heritable, defaults) {
         for (let key in heritable) {
-            if (!values.hasOwnProperty(key)) values[key] = defaults[key];
+            if (!Object.prototype.hasOwnProperty.call(values, key)) values[key] = defaults[key];
         }
         return values;
     }
 
     static fromJSON(json) {
         let set;
-        if (json.hasOwnProperty("set")) set = json.set;
+        if (Object.prototype.hasOwnProperty.call(json, "set")) set = json.set;
         else set = "Basic";
         return Device.makeFeature(json.type, set, json.params, json.name, json.id);
     }
@@ -235,11 +235,11 @@ export default class Feature {
     static fromInterchangeV1(json) {
         let ret;
         let set;
-        if (json.hasOwnProperty("set")) set = json.set;
+        if (Object.prototype.hasOwnProperty.call(json, "set")) set = json.set;
         else set = "Basic";
         //TODO: This will have to change soon when the thing is updated
         ret = Device.makeFeature(json.macro, set, json.params, json.name, json.id, json.type, json.dxfData);
-        if (json.hasOwnProperty("referenceID")) {
+        if (Object.prototype.hasOwnProperty.call(json, "referenceID")) {
             ret.referenceID = json.referenceID;
             // Registry.currentDevice.updateObjectReference(json.id, json.referenceID);
         }

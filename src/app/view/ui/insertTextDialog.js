@@ -1,5 +1,5 @@
 import dialogPolyfill from "dialog-polyfill";
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 
 export default class InsertTextDialog {
     constructor() {

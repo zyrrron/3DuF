@@ -1,6 +1,7 @@
 import dialogPolyfill from "dialog-polyfill";
 import Handsontable from "handsontable";
 import JSZip from "jszip";
+import { saveAs } from "file-saver";
 
 export default class TaguchiDesigner {
     constructor(viewmanager) {

@@ -7,7 +7,7 @@ import Params from "../../core/params";
 import ConnectionTarget from "../../core/connectionTarget";
 import ComponentPort from "../../core/componentPort";
 
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 
 
 export default class ConnectionTool extends MouseTool {
@@ -253,7 +253,7 @@ export default class ConnectionTool extends MouseTool {
             }
             target = this.getNextOrthogonalPoint(lastwaypoint, target);
         }
-        if ((target.length = 2)) {
+        if ((target.length == 2)) {
             this.wayPoints.push(target);
         }
 

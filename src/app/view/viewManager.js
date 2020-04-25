@@ -2,7 +2,7 @@ import ZoomToolBar from "./ui/zoomToolBar";
 import BorderSettingsDialog from "./ui/borderSettingDialog";
 import paper from "paper";
 
-import Registry from '../core/registry';
+import Registry from "../core/registry";
 import * as Colors from "./colors";
 
 import Device from "../core/device";
@@ -980,7 +980,7 @@ export default class ViewManager {
      * @param json
      */
     loadCustomComponents(json) {
-        if (json.hasOwnProperty("customComponents")) {
+        if (Object.prototype.hasOwnProperty.call(json, "customComponents")) {
             this.customComponentManager.loadFromJSON(json["customComponents"]);
         }
     }

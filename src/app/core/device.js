@@ -3,7 +3,7 @@ import Params from "./params";
 import * as Parameters from "./parameters";
 import Feature from "./feature";
 
-import Registry from './registry';
+import Registry from "./registry";
 
 import Layer from "./layer";
 import Component from "./component";
@@ -439,8 +439,8 @@ export default class Device {
 
     static fromInterchangeV1(json) {
         let newDevice;
-        if (json.hasOwnProperty("params")) {
-            if (json.params.hasOwnProperty("width") && json.params.hasOwnProperty("length")) {
+        if (Object.prototype.hasOwnProperty.call(json, "params")) {
+            if (Object.prototype.hasOwnProperty.call(json.params, "width") && Object.prototype.hasOwnProperty.call(json.params, "length")) {
                 newDevice = new Device(
                     {
                         width: json.params.width,
@@ -467,7 +467,7 @@ export default class Device {
         //TODO: Use this to render the device features
 
         //Check if JSON has features else mark
-        if (json.hasOwnProperty("features")) {
+        if (Object.prototype.hasOwnProperty.call(json, "features")) {
             newDevice.__loadFeatureLayersFromInterchangeV1(json.features);
         } else {
             //We need to add a default layer

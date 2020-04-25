@@ -3,7 +3,7 @@ import Feature from "./feature";
 import TextFeature from "./textFeature";
 import Params from "./params";
 
-import Registry from './registry';
+import Registry from "./registry";
 
 export default class Layer {
     constructor(values, name = "New Layer") {
@@ -104,11 +104,11 @@ export default class Layer {
 
     containsFeature(feature) {
         this.__ensureIsAFeature(feature);
-        return this.features.hasOwnProperty(feature.getID());
+        return Object.prototype.hasOwnProperty.call(this, feature.getID());
     }
 
     containsFeatureID(featureID) {
-        return this.features.hasOwnProperty(featureID);
+        return Object.prototype.hasOwnProperty.call(this, featureID);
     }
     getAllFeaturesFromLayer() {
         return this.features;
@@ -169,7 +169,7 @@ export default class Layer {
     }
 
     static fromJSON(json) {
-        if (!json.hasOwnProperty("features")) {
+        if (!Object.prototype.hasOwnProperty.call(json, "features")) {
             throw new Error("JSON layer has no features!");
         }
         let newLayer = new Layer(json.params, json.name);
@@ -180,7 +180,7 @@ export default class Layer {
 
     static fromInterchangeV1(json) {
         //TODO: Need to be able to through all the features in the layer
-        if (!json.hasOwnProperty("features")) {
+        if (!Object.prototype.hasOwnProperty.call(json, "features")) {
             throw new Error("JSON layer has no features!");
         }
         let newLayer = new Layer(json.params, json.name);

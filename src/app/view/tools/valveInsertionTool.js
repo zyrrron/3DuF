@@ -1,8 +1,8 @@
 import MultilayerPositionTool from "./multilayerPositionTool";
 
-import Registry from '../../core/registry';
-import Device from '../../core/device';
-import MouseTool from './mouseTool';
+import Registry from "../../core/registry";
+import Device from "../../core/device";
+import MouseTool from "./mouseTool";
 import PositionTool from "./positionTool";
 import paper from "paper";
 
@@ -201,7 +201,7 @@ export default class ValveInsertionTool extends MultilayerPositionTool {
         let conn_waypoints;
         let lowestdist = 1000000000000000000000;
         let p0, p1, sol;
-        let paths = ([] = connection.getPaths());
+        let paths = connection.getPaths();
         let waypoints = [];
         for (let j in paths) {
             conn_waypoints = paths[j];

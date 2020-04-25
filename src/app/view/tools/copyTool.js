@@ -4,6 +4,8 @@
 // import SimpleQueue from "../../utils/simpleQueue";
 // var PageSetup = require("../pageSetup");
 
-export default class CopyTool extends positionTool {
+import PositionTool from "./positionTool";
+
+export default class CopyTool extends PositionTool {
     // constructor(typeString, setString, )
 }

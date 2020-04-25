@@ -1,5 +1,6 @@
 import "../../lib/material/material.min.css";
 import "../../lib/material/material.min.js";
+import "../../lib/nouislider/nouislider.min.css";
 
 import Registry from "./core/registry";
 import ViewManager from "./view/viewManager";

@@ -1,7 +1,8 @@
 import JSZip from "jszip";
 import ManufacturingLayer from "../../manufacturing/manufacturingLayer";
+import { saveAs } from "file-saver";
 
-import Registry from '../../core/registry';
+import Registry from "../../core/registry";
 
 export default class ExportPanel {
     constructor(viewManagerDelegate) {

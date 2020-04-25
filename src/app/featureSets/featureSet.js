@@ -77,11 +77,10 @@ export default class FeatureSet {
         };
 
         // this.__checkDefinitions();
-        console.warn("Skipping definition check over here ");
     }
 
     containsDefinition(featureTypeString) {
-        if (this.__definitions.hasOwnProperty(featureTypeString)) return true;
+        if (Object.prototype.hasOwnProperty.call(this.__definitions, featureTypeString)) return true;
         else return false;
     }
 
@@ -130,11 +129,11 @@ export default class FeatureSet {
     getDefinition(typeString) {
         // console.log("Called", typeString);
         //TODO:Clean up this hacky code and shift everything to use MINT convention
-        if (!this.__library.hasOwnProperty(typeString)) {
+        if (!Object.prototype.hasOwnProperty.call(this.__library, typeString)) {
             typeString = this.getTypeForMINT(typeString);
         }
 
-        if (!this.__library.hasOwnProperty(typeString)) {
+        if (!Object.prototype.hasOwnProperty.call(this.__library, typeString)) {
             console.error("Could not find the type in featureset definition !: " + typeString);
             return null;
         }
@@ -175,22 +174,6 @@ export default class FeatureSet {
     }
 
     /**
-     * Creates a Feature (Outdated, I think)
-     * @param typeString
-     * @param setString
-     * @param values
-     * @param name
-     * @return {*}
-     */
-    makeFeature(typeString, setString, values, name) {
-        throw new Error("MAke featre in feature set is being called");
-        console.log(setString);
-        let set = getSet(setString);
-        let featureType = getFeatureType(typeString);
-        return featureType(values, name);
-    }
-
-    /**
      * Returns the component ports for a given component
      * @param params
      * @param typestring
@@ -215,7 +198,8 @@ export default class FeatureSet {
 
     __checkDefinitions() {
         for (let key in this.__definitions) {
-            if (!this.__tools.hasOwnProperty(key) || !this.__render2D.hasOwnProperty(key) || !this.__render3D.hasOwnProperty(key)) {
+            if (!Object.prototype.hasOwnProperty.call(this.__tools, key) || !Object.prototype.hasOwnProperty.call(this.__render2D, key) 
+                || !Object.prototype.hasOwnProperty.call(this.__render3D, key)) {
                 throw new Error("Feature set does not contain a renderer or tool definition for: " + key);
             }
         }

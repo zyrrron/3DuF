@@ -17,7 +17,7 @@ export default class Params {
             let value;
             for (let key in rawparameters) {
                 value = rawparameters[key];
-                this.parameters[key] = Parameter.makeParam(this.unique[key], oldParam);
+                this.parameters[key] = Parameter.makeParam(this.unique[key], value);
             }
 
             this.parameters = rawparameters;
@@ -25,7 +25,7 @@ export default class Params {
     }
 
     updateParameter(key, value) {
-        if (this.parameters.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(this.parameters, key)) {
             this.parameters[key].updateValue(value);
         } else {
             if (this.isHeritable(key)) {
@@ -35,7 +35,7 @@ export default class Params {
     }
 
     __ensureHasKey(key) {
-        if (!this.parameters.hasOwnProperty(key)) throw new Error(key + " parameter not found in Params object.");
+        if (!Object.prototype.hasOwnProperty.call(this.parameters, key)) throw new Error(key + " parameter not found in Params object.");
     }
 
     getValue(key) {
@@ -49,15 +49,15 @@ export default class Params {
     }
 
     isUnique(key) {
-        return this.unique.hasOwnProperty(key);
+        return Object.prototype.hasOwnProperty.call(this.unique, key);
     }
 
     isHeritable(key) {
-        return this.heritable.hasOwnProperty(key);
+        return Object.prototype.hasOwnProperty.call(this.heritable, key);
     }
 
     hasAllUniques(params) {
-        for (let key in this.unique) if (!params.hasOwnProperty(key)) return false;
+        for (let key in this.unique) if (!Object.prototype.hasOwnProperty.call(params, key)) return false;
         return true;
     }
     wrongTypeError(key, expected, actual) {
@@ -124,7 +124,7 @@ export default class Params {
     }
 
     hasParam(key) {
-        return this.parameters.hasOwnProperty(key);
+        return Object.prototype.hasOwnProperty.call(this.parameters, key);
     }
 
     /**

@@ -2,6 +2,7 @@
 import * as Parameters from "./parameters";
 var StringValue = Parameters.StringValue;
 import Registry from "./registry";
+import Feature from "../core/feature";
 
 export default class TextFeature {
     constructor(text, params, id = TextFeature.generateID()) {
@@ -72,7 +73,7 @@ export default class TextFeature {
     }
 
     hasDefaultParam(key) {
-        if (this.getDefaults().hasOwnProperty(key)) return true;
+        if (Object.prototype.hasOwnProperty.call(this.getDefaults(), key)) return true;
         else return false;
     }
 
@@ -106,14 +107,14 @@ export default class TextFeature {
 
     static fromJSON(json) {
         let set;
-        if (json.hasOwnProperty("set")) set = json.set;
+        if (Object.prototype.hasOwnProperty.call(json, "set")) set = json.set;
         else set = "Basic";
         return Feature.makeFeature(json.type, set, json.params, json.name, json.id);
     }
 
     static fromInterchangeV1(json) {
         let set;
-        if (json.hasOwnProperty("set")) set = json.set;
+        if (Object.prototype.hasOwnProperty.call(json, "set")) set = json.set;
         else set = "Basic";
         //TODO: This will have to change soon when the thing is updated
         return Feature.makeFeature(json.macro, set, json.params, json.name, json.id, json.type);

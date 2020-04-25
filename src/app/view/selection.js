@@ -1,4 +1,5 @@
 import paper from "paper";
+import Registry from "../core/registry";
 
 export default class Selection {
     /**
