@@ -5,8 +5,21 @@
             <router-link to="/about">About</router-link>
         </div>
         <router-view />
+        <Visualiser />
     </div>
 </template>
+
+<script>
+import Visualiser from "./components/Visualiser"
+
+export default {
+  name: 'App',
+  components: {
+    Visualiser
+  }
+}
+</script>
+
 
 <style lang="scss">
 #app {
