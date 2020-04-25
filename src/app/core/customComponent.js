@@ -1,6 +1,6 @@
 import DXFObject from "./dxfObject";
 import Device from "./device";
-
+import Feature from "./feature";
 import Registry from "./registry";
 
 /**
@@ -56,7 +56,7 @@ export default class CustomComponent {
      */
     generateComponent() {
         let paramvalues = {};
-        let feature = Device.makeFeature(this.__type, "custom", paramvalues, Registry.currentDevice.generateNewName(type), Feature.generateID(), this.dxfData);
+        let feature = Device.makeFeature(this.__type, "custom", paramvalues, Registry.currentDevice.generateNewName(this.__type), Feature.generateID(), this.dxfData);
         return feature;
     }
 

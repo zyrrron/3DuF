@@ -5,9 +5,9 @@ import * as Colors from "../colors";
 import * as ParameterMenu from "./parameterMenu";
 import Registry from "../../core/registry";
 
-const inactiveBackground = GREY_200;
-const inactiveText = BLACK;
-const activeText = WHITE;
+export const inactiveBackground = GREY_200;
+export const inactiveText = BLACK;
+export const activeText = WHITE;
 
 export default class ComponentToolBar {
     constructor(viewmanagerdelegate) {

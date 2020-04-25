@@ -45,6 +45,7 @@ import RightClickMenu from "./ui/rightClickMenu";
 import IntroDialog from "./ui/introDialog";
 import DAFDPlugin from "../plugin/dafdPlugin";
 import { Examples } from "../index";
+import { inactiveBackground, inactiveText, activeText } from "./ui/componentToolBar";
 
 export default class ViewManager {
     /**

@@ -10,6 +10,7 @@ import * as HTMLUtils from "../utils/htmlUtils";
 import MouseAndKeyboardHandler from "./mouseAndKeyboardHandler";
 import PaperView from "./paperView";
 import AdaptiveGrid from "./grid/adaptiveGrid";
+import { inactiveBackground, inactiveText, activeText } from "./ui/componentToolBar";
 
 export default class BareViewManager {
     constructor() {
