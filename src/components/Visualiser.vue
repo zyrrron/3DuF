@@ -1,26 +1,20 @@
 <template>
-        <!-- <div id="view_container">
-            <div id="canvas_block">
-                <canvas id="c" tabindex="0" resize></canvas>
+    <div id="view_container" >
+            <div id="canvas_block" class="shown-block fade-transition">
+                <canvas id="c" tabindex="0" width="500" height="500" resize></canvas>
             </div>
-            <div id="renderContainer"/>
-        </div> -->
-        <div id="view_container" >
-                <div id="canvas_block" class="shown-block fade-transition">
-                    <canvas id="c" tabindex="0" width="500" height="500" resize></canvas>
-                </div>
-                <div id="renderContainer" class="hidden-block fade-transition"></div>
-        </div>
+            <div id="renderContainer" class="hidden-block fade-transition"></div>
+    </div>
 </template>
 
 <script>
-import { Registry, ViewManager } from "../app/index"
+import { Registry, ViewManager, BareViewManager } from "../app/index"
 import { Examples } from "../app/index"
 
     export default {
        mounted: function() {
 
-        let viewManager = new ViewManager();
+        let viewManager = new BareViewManager();
 
         Registry.viewManager = viewManager;
 
