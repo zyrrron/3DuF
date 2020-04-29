@@ -61,19 +61,21 @@ export default class ViewManager {
 
         this.tools = {};
         this.rightMouseTool = new SelectTool();
-        this.customComponentManager = new CustomComponentManager(this);
-        this.rightPanel = new RightPanel(this);
-        this.changeAllDialog = new ChangeAllDialog();
-        this.resolutionToolBar = new ResolutionToolBar();
-        this.borderDialog = new BorderSettingsDialog();
-        this.layerToolBar = new LayerToolBar();
-        this.messageBox = document.querySelector(".mdl-js-snackbar");
-        this.editDeviceDialog = new EditDeviceDialog(this);
-        this.helpDialog = new HelpDialog();
-        this.taguchiDesigner = new TaguchiDesigner(this);
-        this.rightClickMenu = new RightClickMenu();
+        //FIX-UNCOMMENT-VUE
+        // this.customComponentManager = new CustomComponentManager(this);
+        // this.rightPanel = new RightPanel(this);
+        // this.changeAllDialog = new ChangeAllDialog();
+        // this.resolutionToolBar = new ResolutionToolBar();
+        // this.borderDialog = new BorderSettingsDialog();
+        // this.layerToolBar = new LayerToolBar();
+        // this.messageBox = document.querySelector(".mdl-js-snackbar");
+        // this.editDeviceDialog = new EditDeviceDialog(this);
+        // this.helpDialog = new HelpDialog();
+        // this.taguchiDesigner = new TaguchiDesigner(this);
+        // this.rightClickMenu = new RightClickMenu();
         this.__currentDevice = null;
-        this._introDialog = new IntroDialog();
+        // this._introDialog = new IntroDialog();
+        //FIX-UNCOMMENT-VUE
         let reference = this;
         this.updateQueue = new SimpleQueue(function() {
             reference.view.refresh();
@@ -101,9 +103,9 @@ export default class ViewManager {
             reference.adjustZoom(event.deltaY, reference.getEventPosition(event));
         };
 
-        this.manufacturingPanel = new ManufacturingPanel(this);
+        //FIX-UNCOMMENT-VUE// this.manufacturingPanel = new ManufacturingPanel(this);
 
-        this.exportPanel = new ExportPanel(this);
+        //FIX-UNCOMMENT-VUE//// this.exportPanel = new ExportPanel(this);
 
         this.view.setMouseWheelFunction(func);
         this.minZoom = 0.0001;
@@ -507,7 +509,7 @@ export default class ViewManager {
         this.updateQueue.run();
         //Update the toolbar
         let spacing = Registry.currentGrid.getSpacing();
-        this.resolutionToolBar.updateResolutionLabelAndSlider(spacing);
+        //FIX-UNCOMMENT-VUE// this.resolutionToolBar.updateResolutionLabelAndSlider(spacing);
     }
 
     getEventPosition(event) {
@@ -569,7 +571,7 @@ export default class ViewManager {
         this.updateDevice(Registry.currentDevice);
         this.refresh(true);
         Registry.currentLayer = Registry.currentDevice.layers[0];
-        this.layerToolBar.setActiveLayer("0");
+        //FIX-UNCOMMENT-VUE// this.layerToolBar.setActiveLayer("0");
         Registry.viewManager.updateActiveLayer();
     }
 
@@ -918,8 +920,8 @@ export default class ViewManager {
         this.tools["3DMixer"] = new MultilayerPositionTool("3DMixer", "Basic");
 
         //All the new tools
-        this.tools["MoveTool"] = new MoveTool();
-        this.tools["GenerateArrayTool"] = new GenerateArrayTool();
+        //FIX-UNCOMMENT-VUE// this.tools["MoveTool"] = new MoveTool();
+        //FIX-UNCOMMENT-VUE// this.tools["GenerateArrayTool"] = new GenerateArrayTool();
     }
 
     addCustomComponentTool(identifier) {
