@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div id="view_container">
-            <div id="canvas_block" class="shown-block fade-transition">
-                <canvas id="c" tabindex="0" width="500" height="500" resize></canvas>
+        <div id="view-container">
+            <div id="canvas-block" class="shown-block fade-transition">
+                <canvas id="c" tabindex="0" resize></canvas>
             </div>
             <div id="renderContainer" class="hidden-block fade-transition"></div>
         </div>
@@ -98,7 +98,7 @@ export default {
             Registry.viewManager.activateDAFDPlugin(params);
         }
 
-        Registry.viewManager.setupToolBars();
+        // Registry.viewManager.setupToolBars();
         Registry.viewManager.generateBorder();
     },
 
@@ -141,7 +141,25 @@ export default {
 <style lang="scss" scoped>
 #view-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+#canvas-block {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#c {
+    z-index: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    cursor: default;
+    // width: 100%;
+    height: 100vh;
 }
 </style>

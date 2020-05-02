@@ -5,7 +5,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
 
-        <md-app>
+        <md-app style="overflow:hidden">
             <md-app-drawer md-permanent="full">
                 <img class="logo" src="img/logo.png" />
                 <br />
@@ -204,7 +204,7 @@
                 </div>
             </md-app-drawer>
 
-            <md-app-content>
+            <md-app-content id="main-containter-krishna" md-tag="div">
                 <Visualiser />
             </md-app-content>
             <dialog id="help_dialog" class="mdl-dialog">
@@ -591,15 +591,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html, body {
+    margin: 0; 
+    height: 100%;
+    overflow: hidden;
+}
+
+.md-app-container{
+    overflow: hidden;
+}
+
+#main-containter-krishna{
+    overflow: hidden;
+}
+
 .md-app {
-    height: 800px;
+    height: 100vh;
     width: 100%;
     border: 1px solid rgba(#000, 0.12);
+    overflow: hidden;
+}
+
+.md-app-content {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 // Demo purposes only
 .md-drawer {
     width: 230px;
+    // height: 100%;
     max-width: calc(100vw - 125px);
 }
 </style>
