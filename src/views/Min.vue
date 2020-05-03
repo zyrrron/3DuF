@@ -202,7 +202,14 @@ export default {
         Visualiser,
         LayerToolbar,
         EditDeviceDialog,
-        InsertTextDialog
+        InsertTextDialog,
+        ChangeAllDialog,
+        EditBorderDialog, 
+        DOEDialog,
+        ImportDXFDialog,
+        ImportHelpDialog,
+        ResolutionToolbar,
+        HelpDialog
     }
 };
 </script>
