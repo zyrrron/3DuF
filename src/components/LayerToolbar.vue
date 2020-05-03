@@ -8,15 +8,15 @@
                     <span class="md-subheading" md-elevation="0" v-text="test"></span>
                 </span>
                 <span style="align:right; margin-top:-15px">
-                <md-button class="md-icon-button md-dense md-primary md-size-2x">
-                    <md-icon>delete</md-icon>
-                </md-button>
-                <md-button class="md-icon-button md-dense md-primary md-size-2x">
-                    <md-icon>arrow_downward</md-icon>
-                </md-button>
-                <md-button class="md-icon-button md-dense md-primary md-size-2x">
-                    <md-icon>arrow_upward</md-icon>
-                </md-button>
+                    <md-button class="md-icon-button md-dense md-primary md-size-2x">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button md-dense md-primary md-size-2x">
+                        <md-icon>arrow_downward</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button md-dense md-primary md-size-2x">
+                        <md-icon>arrow_upward</md-icon>
+                    </md-button>
                 </span>
                 <br />
                 <md-button class="md-raised">FLOW</md-button>
@@ -78,4 +78,12 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="scss" scoped>
+.md-content {
+    width: 75px;
+    height: 200px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
