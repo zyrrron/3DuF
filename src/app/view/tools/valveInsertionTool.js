@@ -150,8 +150,10 @@ export default class ValveInsertionTool extends MultilayerPositionTool {
      */
     insertValve(point, connection) {
         let angle = this.__getRotation(point, connection);
+        console.log("Getting connection angle: "+ angle);
         if (angle < 0) {
             angle += 180;
+            console.log("Updating connection angle: "+ angle);
         }
 
         let component;

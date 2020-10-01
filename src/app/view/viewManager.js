@@ -876,6 +876,7 @@ export default class ViewManager {
         for (let j in valves) {
             let valve = valves[j];
             let is3D = Registry.currentDevice.getIsValve3D(valve);
+            console.log("Checking if the valve is 3D:" + is3D);
             if (is3D) {
                 let boundingbox = valve.getBoundingRectangle();
                 connection.insertFeatureGap(boundingbox);
