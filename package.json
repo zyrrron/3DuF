@@ -7,6 +7,7 @@
     "babelify": "^10.0.0",
     "browserify": "^16.2.2",
     "eslint": "^6.8.0",
+    "jsdoc": "^3.6.6",
     "node-sass": "^4.14.1",
     "prettier": "1.19.1",
     "watchify": "^3.11.1"
@@ -26,13 +27,13 @@
   "dependencies": {
     "@dagrejs/graphlib": "^2.1.4",
     "acorn": "^8.0.2",
+    "axios": "^0.21.1",
     "dialog-polyfill": "^0.5.0",
     "dxf-parser": "^0.6.1",
     "exorcist": "^1.0.1",
     "handsontable": "^6.2.2",
     "install": "^0.12.2",
     "jszip": "^2.6.1",
-    "knockout": "^3.4.2",
     "md5": "^2.2.1",
     "node-uuid": ">=1.4.3",
     "nouislider": "^11.1.0",
@@ -61,7 +62,8 @@
     "check_pretty": "prettier --check './src/**/*.js'",
     "make_pretty": "prettier --write es6 --paerser babel './src/**/*.js'",
     "eslint": "eslint './src/app/**/*.js'",
-    "eslint_fix": "eslint './src/app/**/*.js' --fix"
+    "eslint_fix": "eslint './src/app/**/*.js' --fix",
+    "generate-docs": "jsdoc -c ./conf.json"
   },
   "repository": {
     "type": "git",
