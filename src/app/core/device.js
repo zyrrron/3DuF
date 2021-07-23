@@ -95,7 +95,7 @@ export default class Device {
      */
     removeConnection(connection) {
         let i = this.__connections.indexOf(connection);
-        if (i != -1) {
+        if (i !== -1) {
             this.__connections.splice(i, 1);
         }
     }
@@ -145,7 +145,7 @@ export default class Device {
         }
 
         let i = this.__components.indexOf(component);
-        if (i != -1) {
+        if (i !== -1) {
             this.__components.splice(i, 1);
         }
 
@@ -369,7 +369,7 @@ export default class Device {
         for (let i in this.__components) {
             component = this.__components[i];
             // console.log(objectID, component.getID());
-            if (objectID == component.getID()) {
+            if (objectID === component.getID()) {
                 component.addFeatureID(featureID);
                 component.placed = true;
                 foundflag = true;
@@ -380,7 +380,7 @@ export default class Device {
         let connection;
         for (let i in this.__connections) {
             connection = this.__connections[i];
-            if (objectID == connection.getID()) {
+            if (objectID === connection.getID()) {
                 connection.addFeatureID(featureID);
                 connection.routed = true;
                 foundflag = true;
@@ -639,8 +639,8 @@ export default class Device {
         IOUtils.sanitizeV1Plus(json);
 
         let newDevice;
-        if (json.hasOwnProperty("params")) {
-            if (json.params.hasOwnProperty("width") && json.params.hasOwnProperty("length")) {
+        if (Object.prototype.hasOwnProperty.call(json, 'params')) {
+            if (Object.prototype.hasOwnProperty.call(json.params, 'width') && Object.prototype.hasOwnProperty.call(json.params, 'length')) {
                 newDevice = new Device(
                     {
                         width: json.params.width,
@@ -676,7 +676,7 @@ export default class Device {
         //TODO: Use this to render the device features
 
         //Check if JSON has features else mark
-        if (json.hasOwnProperty("features")) {
+        if (Object.prototype.hasOwnProperty.call(json, 'features')) {
             newDevice.__loadFeatureLayersFromInterchangeV1(json.features);
         } else {
             //We need to add a default layer
@@ -694,7 +694,7 @@ export default class Device {
         for (let i in features) {
             //console.log("Feature:", features[i]);
             feature = features[i];
-            if (feature.referenceID != null) {
+            if (feature.referenceID !== null) {
                 newDevice.updateObjectReference(feature.referenceID, feature.getID());
             }
         }
@@ -706,8 +706,8 @@ export default class Device {
         IOUtils.sanitizeV1Plus(json);
         let newDevice;
 
-        if (json.hasOwnProperty("params")) {
-            if (json.params.hasOwnProperty("xspan") && json.params.hasOwnProperty("yspan")) {
+        if (Object.prototype.hasOwnProperty.call(json, 'params')) {
+            if (Object.prototype.hasOwnProperty.call(json.params, 'xspan') && Object.prototype.hasOwnProperty.call(json.params, 'yspan')) {
                 newDevice = new Device(
                     {
                         width: json.params.xspan,
@@ -742,7 +742,7 @@ export default class Device {
 
         let valve_map, valve_type_map;
         //Import ValveMap
-        if (json.params.hasOwnProperty("valveMap") && json.params.hasOwnProperty("valveTypeMap")) {
+        if (Object.prototype.hasOwnProperty.call(json.params, 'valveMap') && Object.prototype.hasOwnProperty.call(json.params, 'valveTypeMap')) {
             valve_map = IOUtils.jsonToMap(json.params.valveMap);
             console.log("Imported valvemap", valve_map);
 
@@ -769,7 +769,7 @@ export default class Device {
         //TODO: Use this to render the device features
 
         //Check if JSON has features else mark
-        if (json.hasOwnProperty("features")) {
+        if (Object.prototype.hasOwnProperty.call(json, 'features')) {
             newDevice.__loadFeatureLayersFromInterchangeV1(json.features);
         } else {
             //We need to add a default layer
@@ -786,7 +786,7 @@ export default class Device {
         for (let i in features) {
             //console.log("Feature:", features[i]);
             feature = features[i];
-            if (feature.referenceID != null) {
+            if (feature.referenceID !== null) {
                 newDevice.updateObjectReference(feature.referenceID, feature.getID());
             }
         }
@@ -865,7 +865,7 @@ export default class Device {
      * @returns {void}
      */
     deleteLayer(index) {
-        if (index != -1) {
+        if (index !== -1) {
             this.layers.splice(index, 1);
         }
     }
@@ -960,7 +960,7 @@ export default class Device {
         let ret = [];
         for (let [key, value] of this.__valveMap) {
             // let  = pair;
-            if (connectionid == value) {
+            if (connectionid === value) {
                 ret.push(this.getComponentByID(key));
             }
         }
@@ -1018,7 +1018,7 @@ export default class Device {
     getComponentByName(name) {
         let components = this.getComponents();
         for (let i in components) {
-            if (name == components[i].getName()) {
+            if (name === components[i].getName()) {
                 return components[i];
             }
         }
@@ -1052,7 +1052,7 @@ export default class Device {
         for (let i in components) {
             component = components[i];
             for (let key of component.ports.keys()) {
-                if (componentport.id == component.ports.get(key).id) {
+                if (componentport.id === component.ports.get(key).id) {
                     //Found the component so return the position
                     return componentport.calculateAbsolutePosition(component);
                 }

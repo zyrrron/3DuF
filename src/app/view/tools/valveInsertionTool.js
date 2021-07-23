@@ -168,7 +168,7 @@ export default class ValveInsertionTool extends MultilayerPositionTool {
         }
 
         Registry.currentDevice.insertValve(component, connection, this.is3D);
-        Registry.viewManager.updatesConnectionRender(connection);
+        Registry.viewManager.updatesConnectionRender(connection, angle);
         Registry.viewManager.saveDeviceState();
     }
 
